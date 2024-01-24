@@ -12,7 +12,7 @@ const isProduction = environment === 'production';
 
 const app = express();
 
-app.use(routes)
+
 app.use(morgan('dev'));
 
 app.use(cookieParser());
@@ -41,5 +41,7 @@ if (!isProduction) {
       }
     })
   );
+
+  app.use(routes)
 
 module.exports = app
