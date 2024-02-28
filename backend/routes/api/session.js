@@ -1,5 +1,9 @@
 // backend/routes/api/session.js
-const express = require('express')
-const router = express.Router();
+const express = require('express');
+const { Op } = require('sequelize');
+const bcrypt = require('bcryptjs');
 
-module.exports = router;
+const { setTokenCookie, restoreUser } = require('../../utils/auth');
+const { User } = require('../../db/models');
+
+const router = express.Router();
