@@ -1,5 +1,8 @@
 // backend/routes/api/users.js
-const express = require('express')
-const router = express.Router();
+const express = require('express');
+const bcrypt = require('bcryptjs');
 
-module.exports = router;
+const { setTokenCookie, requireAuth } = require('../../utils/auth');
+const { User } = require('../../db/models');
+
+const router = express.Router();
